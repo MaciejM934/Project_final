@@ -14,3 +14,35 @@
  *= require_self
  */
  @import "bootstrap";
+
+ .logo-container {
+    text-align: center;
+  }
+
+  .welcome-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .welcome-text {
+    text-align: center;
+    margin-right: 20px;
+  }
+  .logo {
+    width: 400px;
+    height: auto;
+    background-image: image-url('Szachy_logo.png');
+    background-size: cover;
+    position: absolute;
+    top: -50px;
+    right: 40px;
+    left: 300px;
+  }
+  
+  .logo img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
