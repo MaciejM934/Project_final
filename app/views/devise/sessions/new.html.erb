@@ -1,3 +1,13 @@
+<div class="welcome-banner">
+  <div class="welcome-text">
+    <h2>Witaj w grze Szachy Korespondencyjne!</h2>
+    <p>Zaloguj się, aby rozpocząć rozgrywkę i cieszyć się grą ze znajomymi.</p>
+  </div>
+  <div class="logo">
+    <%= image_tag('Szachy_logo.png', alt: 'Szachy_logo.png') %>
+  </div>
+</div>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
