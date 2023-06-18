@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [ :edit, :update, :destroy]
 
   # GET /boards or /boards.json
   def index
@@ -21,7 +22,7 @@ class BoardsController < ApplicationController
 
   # POST /boards or /boards.json
   def create
-    @board = Board.new(board_params)
+    @board = current_user.boards.build(board_params)
 
     respond_to do |format|
       if @board.save
@@ -66,5 +67,12 @@ class BoardsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def board_params
       params.require(:board).permit(:history_string, :title, :is_white)
+    end
+
+    def authorize_user!
+      unless @board.user == current_user
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_to root_path
+      end
     end
 end
