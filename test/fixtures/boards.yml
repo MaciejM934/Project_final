@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  history_string: MyText
+  title: MyString
+  is_white: false
+
+two:
+  history_string: MyText
+  title: MyString
+  is_white: false
