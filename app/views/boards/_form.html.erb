@@ -22,11 +22,11 @@
   </div>
 
   <div>
-    <%= form.label :is_white, style: "display: block" %>
     <%= form.check_box :is_white %>
+    <%= form.label :is_white, style: "margin-left: 6px" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="d-flex justify-content-center">
+     <%= form.submit %>
   </div>
 <% end %>

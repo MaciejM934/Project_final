@@ -1,6 +1,10 @@
 <h1>Editing board</h1>
 
-<%= render "form", board: @board %>
+<% if user_signed_in? && @board.users.include?(current_user) %>
+  <%= render "form", board: @board %>
+<% else %>
+  <p>You are not authorized to edit this board.</p>
+<% end %>
 
 <br>
 

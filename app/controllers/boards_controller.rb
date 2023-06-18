@@ -1,7 +1,8 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [ :edit, :update, :destroy]
-
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+  
   # GET /boards or /boards.json
   def index
     @boards = Board.all
@@ -37,6 +38,7 @@ class BoardsController < ApplicationController
 
   # PATCH/PUT /boards/1 or /boards/1.json
   def update
+    @board = current_user.boards.find(params[:id])
     respond_to do |format|
       if @board.update(board_params)
         format.html { redirect_to board_url(@board), notice: "Board was successfully updated." }
